@@ -1,0 +1,16 @@
+<h1>My Tasks</h1>
+
+<ul>
+<% @tasks.each do |task| %>
+<li class="task-item">
+<span class="task-checkbox"><input type="checkbox"></span>
+<span><%= link_to task.title, task_path(task) %></span>
+</li>
+<% end %>
+</ul>
+
+<%= link_to "Create a new task", tasks_new_path %>
+
+
+<%#
+# link to new tasks not working - path problem %>
