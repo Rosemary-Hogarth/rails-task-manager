@@ -3,14 +3,12 @@
 <ul>
 <% @tasks.each do |task| %>
 <li class="task-item">
-<span class="task-checkbox"><input type="checkbox"></span>
+<span class="task-checkbox"><%=  check_box_tag 'completed[]', task.id, task.completed  %></span>
 <span><%= link_to task.title, task_path(task) %></span>
 </li>
+<%= link_to "delete", task_path(task), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+
 <% end %>
 </ul>
 
-<%= link_to "Create a new task", tasks_new_path %>
-
-
-<%#
-# link to new tasks not working - path problem %>
+<%= link_to "Create a new task", new_task_path %>
